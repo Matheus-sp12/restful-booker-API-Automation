@@ -15,6 +15,7 @@ describe("Test Suit - Auth API Testing", () => {
       expect(response.status).to.eq(200);
       expect(response.body).to.have.property("token");
       expect(response.body).not.to.be.empty;
+      espect(response.body.token).to.be.a("string");
     });
   });
 });
