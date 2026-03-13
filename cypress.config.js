@@ -1,18 +1,15 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  allowCypressEnv: true,
-
   e2e: {
-    baseUrl: 'https://restful-booker.herokuapp.com',
-    requestTimeout: 6000,
-    responseTimeout: 6000,
+    baseUrl: "https://restful-booker.herokuapp.com",
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    env:{
+    env: {
       requestMode: true,
-      hidenCredentials: true,
-    }
+      auth_url: "/auth",
+      booking_url: "/booking",
+    },
   },
 });

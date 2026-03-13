@@ -15,7 +15,25 @@ describe("Test Suit - Auth API Testing", () => {
       expect(response.status).to.eq(200);
       expect(response.body).to.have.property("token");
       expect(response.body).not.to.be.empty;
-      espect(response.body.token).to.be.a("string");
+      expect(response.body.token).to.be.a("string");
+    });
+  });
+
+  it("2 - POST credentials to aut endpoint with sucess -  2° version", () => {
+    let body = {
+      username: "admin",
+      password: "password123",
+    };
+
+    cy.postRequest(
+      Cypress.env("auth_url"),
+      { "Content-Type": "application/json" },
+      body,
+    ).then((response) => {
+      debugger;
+      expect(response.status).to.eq(200);
+      expect(response.body).to.have.property("token").and.to.be.a("string");
+      expect(response.body).not.to.be.empty;
     });
   });
 });
