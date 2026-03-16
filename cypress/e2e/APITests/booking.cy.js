@@ -63,7 +63,7 @@ describe("Test suit - Booking API Testing", () => {
     });
   });
 
-  it.only("5 - creating a new booking with sucess", () => {
+  it("5 - creating a new booking with sucess", () => {
     cy.request({
       method: "POST",
       url: "/booking",
